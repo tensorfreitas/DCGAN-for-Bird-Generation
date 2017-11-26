@@ -4,9 +4,9 @@ This repository was created for me to familiarize with DCGANs and its peculiarit
 
 ## Caltech-UCSD Birds-200-2011 dataset
 
-This dataset has 11788 images from 200 different birds. It includes also some additional information such as segmentations, attributes and bounding boxes that will not be used in this project. Here is a look of the different images in this dataset:
+This dataset has 11788 images from 200 different birds. It includes also some additional information such as segmentations, attributes and bounding boxes that will not be used in this project. Here are some of the different images in this dataset:
 
-![Alt text](http://www.vision.caltech.edu/visipedia/collage.jpg)
+![CaltechBirdExample](http://www.vision.caltech.edu/visipedia/collage.jpg)
 
 I was looking for a different dataset for my personal experiments, and when I found it, it seemed like a good idea to try generate birds from this dataset.
 
@@ -14,7 +14,7 @@ I was looking for a different dataset for my personal experiments, and when I fo
 
 I tried to implement a DCGAN (Deep Convolutional GAN) since most of GANs are at least loosely based on the DCGAN architecture. The original DCGAN architecture proposed by Radford et al. (2015), can be shown in the next image:
 
-(ADD IMAGE)
+![dcgan_arch](https://user-images.githubusercontent.com/10371630/33244947-c882506e-d2f8-11e7-89e4-611fdc7dacd9.png)
 
 Like traditional GANs, DCGANs consist in a discriminator which tries to classify images as real or fake, and a generator that tries to produce samples that will by fed to the discriminator trying to mislead it. DCGANs usually refer to this specific style of architecture shown in the previous figure, since previously proposed GANs were also deep and convolutional prior to this work. 
 
