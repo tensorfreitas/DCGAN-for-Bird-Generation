@@ -1,4 +1,4 @@
-# DCGAN for Bird Generation
+# DCGAN for Bird Generation (Under construction)
 
 This repository was created for me to familiarize with DCGANs and its peculiarities. The code uses Keras library and uses the Caltech-UCSD Birds-200-2011 dataset.
 
