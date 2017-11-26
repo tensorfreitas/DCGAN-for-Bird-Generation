@@ -49,7 +49,15 @@ Each 50 iterations the generated images are saved in the disk as .png files and 
 
 ## Results
 
+(Under Construction)
 
+## Possible Improvements
+
+If I have some time later I will probably try some of these improvements:
+
+- Use Wassestein GANs to keep track of the convergence during training. 
+- Use the label information to train a better Generator, for example using Auxilliary GANs or Conditional GANs
+- Explore different types of architectures
 
 ## References
 - Wah C., Branson S., Welinder P., Perona P., Belongie S. “The Caltech-UCSD Birds-200-2011 Dataset.” Computation & Neural Systems Technical Report, CNS-TR-2011-001
@@ -61,3 +69,8 @@ Each 50 iterations the generated images are saved in the disk as .png files and 
 Of course I have based my code on other projects and repositories. I would like to give credit to some of them: 
 
 - [How to Train a GAN? Tips and tricks to make GANs work](https://github.com/soumith/ganhacks)
+- [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://github.com/Newmu/dcgan_code)
+- [DCGAN on Tensorflow](https://github.com/carpedm20/DCGAN-tensorflow)
+- [Anime-Face-GAN-Keras](https://github.com/pavitrakumar78/Anime-Face-GAN-Keras)
+- [Keras-DCGAN](https://github.com/jacobgil/keras-dcgan)
+- [GAN-Sandbox](https://github.com/wayaai/GAN-Sandbox)
