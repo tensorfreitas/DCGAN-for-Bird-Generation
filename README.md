@@ -51,9 +51,25 @@ Each epoch, 3 bathes of generated images are saved in the disk as .png files and
 
 It is important to have the folders generated images and models in the same path of the trainDCGAN.py file. 
 
-## Results
+## Results (Under Construction)
 
 (Under Construction)
+
+Evolution of generated images along 190 epochs:
+
+![ResultsGIF](https://github.com/Goldesel23/DCGAN-for-Bird-Generation/blob/master/generatedImages2.gif)
+
+Here are some of the Images Generated in the End of the Training:
+
+![generatedsamples_epoch190_batch50](https://user-images.githubusercontent.com/10371630/33324399-6cbeb88a-d447-11e7-8717-a8a5455036fe.png)
+
+![generatedsamples_epoch190_batch100](https://user-images.githubusercontent.com/10371630/33324400-6ce27144-d447-11e7-9a6f-a6faa15d04f9.png)
+
+![generatedsamples_epoch190_batch150](https://user-images.githubusercontent.com/10371630/33324401-6d0c8a60-d447-11e7-8450-9f171e7bec17.png)
+
+And here is the generator and discriminator loss evolution during training:
+
+![traininglossplot](https://user-images.githubusercontent.com/10371630/33324663-279c9262-d448-11e7-9b0a-7b5c375f7c7c.png)
 
 ## Possible Improvements
 
