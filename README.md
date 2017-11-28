@@ -55,19 +55,29 @@ It is important to have the folders generated images and models in the same path
 
 Evolution of generated images along 190 epochs:
 
-![ResultsGIF](https://github.com/Goldesel23/DCGAN-for-Bird-Generation/blob/master/generatedImages2.gif)
+<p align="center">
+  <img src="https://github.com/Goldesel23/DCGAN-for-Bird-Generation/blob/master/generatedImages2.gif" alt="ResultsGIF"/>
+</p>
 
 Here are some of the Images Generated in the End of the Training:
 
-![generatedsamples_epoch190_batch50](https://user-images.githubusercontent.com/10371630/33324399-6cbeb88a-d447-11e7-8717-a8a5455036fe.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/33324399-6cbeb88a-d447-11e7-8717-a8a5455036fe.png" alt="generatedsamples_epoch190_batch50"/>
+</p>
 
-![generatedsamples_epoch190_batch100](https://user-images.githubusercontent.com/10371630/33324400-6ce27144-d447-11e7-9a6f-a6faa15d04f9.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/33324400-6ce27144-d447-11e7-9a6f-a6faa15d04f9.png" alt="generatedsamples_epoch190_batch100"/>
+</p>
 
-![generatedsamples_epoch190_batch150](https://user-images.githubusercontent.com/10371630/33324401-6d0c8a60-d447-11e7-8450-9f171e7bec17.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/33324401-6d0c8a60-d447-11e7-8450-9f171e7bec17.png" alt="generatedsamples_epoch190_batch150"/>
+</p>
 
 And here is the generator and discriminator loss evolution during training:
 
-![traininglossplot](https://user-images.githubusercontent.com/10371630/33324663-279c9262-d448-11e7-9b0a-7b5c375f7c7c.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/33324663-279c9262-d448-11e7-9b0a-7b5c375f7c7c.png alt="traininglossplot"/>
+</p>
 
 The training was done in a laptop with Ubuntu 16.04 with a NVIDIA GTX-960M and it took a dozen of hours. I am quite satisfied with the result. The images are a little blurred but it seems like the generator learnt how to make artistic bird images. 
 
