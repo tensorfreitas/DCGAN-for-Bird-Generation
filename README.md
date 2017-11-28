@@ -16,7 +16,9 @@ I was looking for a different dataset for my personal experiments, and when I fo
 
 I tried to implement a DCGAN (Deep Convolutional GAN) since most of GANs are at least loosely based on the DCGAN architecture. The original DCGAN architecture proposed by Radford et al. (2015), can be shown in the next image:
 
-![dcgan_arch](https://user-images.githubusercontent.com/10371630/33244947-c882506e-d2f8-11e7-89e4-611fdc7dacd9.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/33244947-c882506e-d2f8-11e7-89e4-611fdc7dacd9.png" alt="dcgan_arch"/>
+</p>
 
 Like traditional GANs, DCGANs consist in a discriminator which tries to classify images as real or fake, and a generator that tries to produce samples that will by fed to the discriminator trying to mislead it. DCGANs usually refer to this specific style of architecture shown in the previous figure, since previously proposed GANs were also deep and convolutional prior to this work. 
 
@@ -76,7 +78,7 @@ Here are some of the Images Generated in the End of the Training:
 And here is the generator and discriminator loss evolution during training:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/10371630/33324663-279c9262-d448-11e7-9b0a-7b5c375f7c7c.png alt="traininglossplot"/>
+  <img src="https://user-images.githubusercontent.com/10371630/33324663-279c9262-d448-11e7-9b0a-7b5c375f7c7c.png" alt="traininglossplot"/>
 </p>
 
 The training was done in a laptop with Ubuntu 16.04 with a NVIDIA GTX-960M and it took a dozen of hours. I am quite satisfied with the result. The images are a little blurred but it seems like the generator learnt how to make artistic bird images. 
