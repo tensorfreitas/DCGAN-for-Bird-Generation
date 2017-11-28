@@ -55,6 +55,10 @@ It is important to have the folders generated images and models in the same path
 
 (Under Construction)
 
+Generated Images along 190 epochs:
+
+![ResultsGIF](https://github.com/Goldesel23/DCGAN-for-Bird-Generation/blob/master/generatedImages2.gif)
+
 ## Possible Improvements
 
 If I have some time later I will probably try some of these improvements:
