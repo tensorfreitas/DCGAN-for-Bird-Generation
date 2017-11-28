@@ -1,12 +1,14 @@
 # DCGAN for Bird Generation (Under construction)
 
-This repository was created for me to familiarize with DCGANs and its peculiarities. The code uses Keras library and uses the Caltech-UCSD Birds-200-2011 dataset.
+This repository was created for me to familiarize with DCGANs and its peculiarities. The code uses Keras library and the Caltech-UCSD Birds-200-2011 dataset.
 
 ## Caltech-UCSD Birds-200-2011 dataset
 
 This dataset has 11788 images from 200 different birds. It includes also some additional information such as segmentations, attributes and bounding boxes that will not be used in this project. Here are some of the different images in this dataset:
 
-![CaltechBirdExample](http://www.vision.caltech.edu/visipedia/collage.jpg)
+<p align="center">
+  <img src="http://www.vision.caltech.edu/visipedia/collage.jpg" alt="CaltechBirdExample"/>
+</p>
 
 I was looking for a different dataset for my personal experiments, and when I found it, it seemed like a good idea to try generate birds from this dataset.
 
@@ -31,7 +33,7 @@ convolutions (generator).
 
 ### DCGAN train
 
-Although I tried different architectures based on other papers and repositories, the best result was achieved using a traditional DCGAN architecture with LeakyReLu's in both the discriminator and the generator. 
+Although I tried different architectures based on other papers and repositories, the best result was achieved using a traditional DCGAN architecture (see the code for more datails)
 
 In each training iteration:
 1. A batch of images of the original dataset is obtained and is normalized between -1 and 1.
@@ -45,7 +47,9 @@ In each training iteration:
 
 #### Notes
 
-Each 50 iterations the generated images are saved in the disk as .png files and each 5 epochs the models are saved in the disk. It is important to have the folders generated images and models in the same path of the trainDCGAN.py file. Also the loss plot is saved in the end of each epoch.
+Each epoch, 3 bathes of generated images are saved in the disk as .png files and each 5 epochs the models are saved in the disk. Also the loss plot is saved in the end of each epoch.
+
+It is important to have the folders generated images and models in the same path of the trainDCGAN.py file. 
 
 ## Results
 
@@ -55,7 +59,8 @@ Each 50 iterations the generated images are saved in the disk as .png files and 
 
 If I have some time later I will probably try some of these improvements:
 
-- Use Wassestein GANs to keep track of the convergence during training. 
+- Use the cropped images with the dataset bounding boxes instead of the full images. 
+- Use Wassestein GANs to get images with better image quality and keep track of the convergence during training. 
 - Use the label information to train a better Generator, for example using Auxilliary GANs or Conditional GANs
 - Explore different types of architectures
 
