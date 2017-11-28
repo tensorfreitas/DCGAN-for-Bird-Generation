@@ -51,9 +51,7 @@ Each epoch, 3 bathes of generated images are saved in the disk as .png files and
 
 It is important to have the folders generated images and models in the same path of the trainDCGAN.py file. 
 
-## Results (Under Construction)
-
-(Under Construction)
+## Results
 
 Evolution of generated images along 190 epochs:
 
@@ -71,9 +69,13 @@ And here is the generator and discriminator loss evolution during training:
 
 ![traininglossplot](https://user-images.githubusercontent.com/10371630/33324663-279c9262-d448-11e7-9b0a-7b5c375f7c7c.png)
 
+The training was done in a laptop with Ubuntu 16.04 with a NVIDIA GTX-960M and it took a dozen of hours. I am quite satisfied with the result. The images are a little blurred but it seems like the generator learnt how to make artistic bird images. 
+
+The results could be better but I'm quite satisfied with the mutant birds it generated. You can say what you want but these are my mutant birds... Despite that I'll try to make improvements in the future to the DCGAN when I have some time. 
+
 ## Possible Improvements
 
-If I have some time later I will probably try some of these improvements:
+If I have some time later I will probably try some of these:
 
 - Use the cropped images with the dataset bounding boxes instead of the full images. 
 - Use Wassestein GANs to get images with better image quality and keep track of the convergence during training. 
