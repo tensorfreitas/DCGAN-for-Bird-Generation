@@ -86,8 +86,8 @@ The loss function is expected is similar to the shown by the paper:
 
 Additionally there are some interesting facts that I discovered that I think might help someone:
 
-- Under Construction ..............
-
+- Since we have no longer a classification problem the loss should no longer tend to 0.5. For a perfect generator the loss should be 0. 
+- When the critic isn't trained optimally, the loss curves aren't as smooth as shown in the paper, leading to the presence of peaks. This can occur due to high learning rates, momentum of the optimizer and low number of discriminator iterations. In his github repo, the original author refers that: "when the curve is making a big jump like this and keep iterating the critic till the curve goes up again to roughly were it was before the jump."
 
 ## Results
 
@@ -120,6 +120,8 @@ And here is the generator and discriminator loss evolution during training:
 The training was done in a laptop with Ubuntu 16.04 with a NVIDIA GTX-960M and it took a dozen of hours. I am quite satisfied with the result. The images are a little blurred but it seems like the generator learnt how to make artistic bird images. 
 
 The results could be better but I'm quite satisfied with the mutant birds it generated. You can say what you want but these are my mutant birds... Despite that I'll try to make improvements in the future to the DCGAN when I have some time. 
+
+### WGAN Results (Under Construction)
 
 ## Possible Improvements
 
