@@ -53,6 +53,42 @@ Each epoch, 3 bathes of generated images are saved in the disk as .png files and
 
 It is important to have the folders generated images and models in the same path of the trainDCGAN.py file. 
 
+## WGANs (Under Construction)
+
+After training the DCGAN, I wanted to compare the results with the WGAN proposed by Arjovsky et al. (2017), therefore I also implemented code for WGAN training in Keras. 
+
+In this paper, it is proposed a meaningful loss function, which helps debugging GANs and tuning its parameters and architectures. This loss function, the Wasserstein loss (or Earth-Moving loss), is shown to have a relationship with image quality. The use of this new loss function has proven to avoid mode collapses (generating similar images) even when fully connected layer GANS are used or when batch normalization is not used.
+
+The word discriminator in this paper is replaced by critic since its purpose is not to classify directly if the image is true or fake – we have no longer a binary classification problem. The critic no longer needs to output a probability. When training the critic, the labels provided for the real images are 1’s and for the fake images are negative 1’s. 
+
+Fake and real images are interpreted as coming from a probability distribution, the WGAN tries to measure the difference between these distributions and minimize it (by minimizing the loss). Since the computation of Wasserstein distance is intractable, the paper uses an approximation:
+
+```
+K.mean(y_true * y_predicted)
+```
+
+This only works if the network used is K-Lipschitz. In order this to be true, weights are clamped in the discriminator to very small values near zero. The authors admit this is not the ideal solution, but in practice works (notice that the improved version of the WGAN resolves this problem in a more interesting way). 
+
+In the traditional DCGANs to get good images we need to balance the train between the generator and the discriminator. With the new Wasserstein loss, this problem is solved: since the Wasserstein distance is almost every time differentiable, the critic can be train to convergence before training the generator, since the gradients become more accurate in this process. 
+
+Regarding the training some topics need to be referred:
+
+- The critic is trained for 100 times for each generator train iteration in the first 25 generator train updates. After this, it is trained for 5 iterations for each generator iteration (every 500 generator iterations the critic is trained again for 100 times). 
+- Each critic iteration the weights are clipped to smaller values near zero (-0.01 to 0.01)
+- The optimizer should not use momentum and a low learning rate should be used
+- Training is very slow due to the learning rate and the number of critic updates in each generator update. 
+
+The loss function is expected is similar to the shown by the paper:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/34366989-3fe579b4-ea9c-11e7-9b49-00f9c7712f48.png" alt="WGAN_loss"/>
+</p>
+
+Additionally there are some interesting facts that I discovered that I think might help someone:
+
+- Under Construction ..............
+
+
 ## Results
 
 Evolution of generated images along 190 epochs:
@@ -98,6 +134,7 @@ If I have some time later I will probably try some of these:
 - Wah C., Branson S., Welinder P., Perona P., Belongie S. “The Caltech-UCSD Birds-200-2011 Dataset.” Computation & Neural Systems Technical Report, CNS-TR-2011-001
 - Radford, Alec, Luke Metz, and Soumith Chintala. "Unsupervised representation learning with deep convolutional generative adversarial networks." arXiv preprint arXiv:1511.06434 (2015).
 - Goodfellow, Ian. "NIPS 2016 tutorial: Generative adversarial networks." arXiv preprint arXiv:1701.00160 (2016).
+- Arjovsky, Martin, Soumith Chintala, and Léon Bottou. "Wasserstein gan." arXiv preprint arXiv:1701.07875 (2017).
 
 ## Credits
 
@@ -109,3 +146,7 @@ Of course I have based my code on other projects and repositories. I would like 
 - [Anime-Face-GAN-Keras](https://github.com/pavitrakumar78/Anime-Face-GAN-Keras)
 - [Keras-DCGAN](https://github.com/jacobgil/keras-dcgan)
 - [GAN-Sandbox](https://github.com/wayaai/GAN-Sandbox)
+- [Original Pytorch Implementation of WGAN](https://github.com/martinarjovsky/WassersteinGAN)
+- [Wasserstein GAN in Keras - Blog post](https://myurasov.github.io/2017/09/24/wasserstein-gan-keras.html)
+- [Read-through: Wasserstein GAN - Blog post](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html)
+- [Tensorflow implementation of WGAN](https://github.com/shekkizh/WassersteinGAN.tensorflow)
