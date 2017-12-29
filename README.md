@@ -51,9 +51,9 @@ In each training iteration:
 
 Each epoch, 3 bathes of generated images are saved in the disk as .png files and each 5 epochs the models are saved in the disk. Also the loss plot is saved in the end of each epoch.
 
-It is important to have the folders generated images and models in the same path of the trainDCGAN.py file. 
+**It is important to have the folders generated images and models in the same path of the trainDCGAN.py file.**
 
-## WGANs (Under Construction)
+## WGANs
 
 After training the DCGAN, I wanted to compare the results with the WGAN proposed by Arjovsky et al. (2017), therefore I also implemented code for WGAN training in Keras. 
 
@@ -122,9 +122,11 @@ The training was done in a laptop with Ubuntu 16.04 with a NVIDIA GTX-960M and i
 
 The results could be better but I'm quite satisfied with the mutant birds it generated. You can say what you want but these are my mutant birds... Despite that I'll try to make improvements in the future to the DCGAN when I have some time. 
 
-### WGAN Results (Under Construction)
+### WGAN Results
 
 I followed the same architecture used for DCGAN in order to have a proper comparision of the results. The weights were initialized in a different manner in order not to be all clamped at the beggining of the training. 
+
+Notice that in train_wgan.py the results are not saved in a png file. I decided to use tensorboard on this one, so the plots will be saved in a log file that you can open with tensorboard (assuming you're using tensorflow as keras backend). 
 
 The training was performed for almost 20000 generator iterations and took almost 3 days in the same setup described earlier. The loss curves follow the convergence referred in the original paper:
 
