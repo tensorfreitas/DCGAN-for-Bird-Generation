@@ -124,12 +124,30 @@ The results could be better but I'm quite satisfied with the mutant birds it gen
 
 ### WGAN Results (Under Construction)
 
+I followed the same architecture used for DCGAN in order to have a proper comparision of the results. The weights were initialized in a different manner in order not to be all clamped at the beggining of the training. 
+
+The training was performed for almost 20000 generator iterations and took almost 3 days in the same setup described earlier. The loss curves follow the convergence referred in the original paper:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/34440741-29a045ac-ecaf-11e7-9bc6-bec81ab275db.png" alt="Plot_Of_Losses"/>
+</p>
+
+The peaks observed in the loss curves, are probably one of the problems described by the author and referred earlier: the critic probably wasn't trained until optimally. I tried to follow the author's sugestions and change the learning rates and increase the number of critic iterations, but the peaks continued to occur. Probably this was one of the reasons why I did not see imporvements in the generated images. Here is one example after 20k iterations:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/10371630/34440739-2616c8a2-ecaf-11e7-9182-1fea90b86534.png" alt="generated_samples"/>
+</p>
+
+Despite that, I think the new loss function is quite usefull to know when a specified GAN is converging or not, despite of being a lot slower than traditional DGANs. With a little more investigation and time (let's not forget it took 3 days to train the WGAN) I think the problem of the peaks could be removed by training more the discriminator. 
+
+After taking a more deeper look into the pytorch original code I found out that the bias of the layers were set to False. I could not find why this is done, but this may also contibuted to the results in my WGAN, since I set the biases by default. 
+
 ## Possible Improvements
 
 If I have some time later I will probably try some of these:
 
 - Use the cropped images with the dataset bounding boxes instead of the full images. 
-- Use Wassestein GANs to get images with better image quality and keep track of the convergence during training. 
+- Train improved version Wassestein with gradient penalty. 
 - Use the label information to train a better Generator, for example using Auxilliary GANs or Conditional GANs
 - Explore different types of architectures
 
@@ -150,6 +168,7 @@ Of course I have based my code on other projects and repositories. I would like 
 - [Keras-DCGAN](https://github.com/jacobgil/keras-dcgan)
 - [GAN-Sandbox](https://github.com/wayaai/GAN-Sandbox)
 - [Original Pytorch Implementation of WGAN](https://github.com/martinarjovsky/WassersteinGAN)
+- [Reddit WGAN thread](https://www.reddit.com/r/MachineLearning/comments/5qxoaz/r_170107875_wasserstein_gan/)
 - [Wasserstein GAN in Keras - Blog post](https://myurasov.github.io/2017/09/24/wasserstein-gan-keras.html)
 - [Read-through: Wasserstein GAN - Blog post](https://www.alexirpan.com/2017/02/22/wasserstein-gan.html)
 - [Tensorflow implementation of WGAN](https://github.com/shekkizh/WassersteinGAN.tensorflow)
