@@ -75,7 +75,7 @@ Regarding the training some topics need to be referred:
 
 - The critic is trained for 100 times for each generator train iteration in the first 25 generator train updates. After this, it is trained for 5 iterations for each generator iteration (every 500 generator iterations the critic is trained again for 100 times). 
 - Each critic iteration the weights are clipped to smaller values near zero (-0.01 to 0.01)
-- The optimizer should not use momentum and a low learning rate should be used
+- The optimizer should not use momentum (therefore RMSProp is used) and a low learning rate should be used
 - Training is very slow due to the learning rate and the number of critic updates in each generator update. 
 
 The loss function is expected is similar to the shown by the paper:
@@ -88,6 +88,7 @@ Additionally there are some interesting facts that I discovered that I think mig
 
 - Since we have no longer a classification problem the loss should no longer tend to 0.5. For a perfect generator the loss should be 0. 
 - When the critic isn't trained optimally, the loss curves aren't as smooth as shown in the paper, leading to the presence of peaks. This can occur due to high learning rates, momentum of the optimizer and low number of discriminator iterations. In his github repo, the original author refers that: "when the curve is making a big jump like this and keep iterating the critic till the curve goes up again to roughly were it was before the jump."
+- Also the author in reddit referred that "The discriminator takes longer to train, since it has to saturate some weights at a larger value. This means that you can be a risk of having an insufficiently trained critic, which can provide bad estimates and gradients. Sometimes sign changes are required in the critic, and going from c to -c on some weights will take longer. If the generator is updated in the middle of this process the gradient can be pretty bad."
 
 ## Results
 
